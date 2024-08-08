@@ -15,4 +15,8 @@ class Course(db.Model):
     course_title = db.Column(db.String, nullable=False)
     course_desc = db.Column(db.Text, nullable=False, index=True)
     
+    #unique 
+    sgd = db.Column(db.String)
     
+    
+   
