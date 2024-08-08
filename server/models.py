@@ -19,4 +19,13 @@ class Course(db.Model):
     sgd = db.Column(db.String)
     
     
-   
+    # get a list for the sdgs
+    
+    def sgd_list(self):
+        if self.sgd:
+            return list(map(int, self.sgd.split(',')))
+        return []
+    
+    
+    def __repr__(self):
+        return f'course id: {self.cid}'
