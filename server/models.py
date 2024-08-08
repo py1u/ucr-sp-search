@@ -11,4 +11,8 @@ class Course(db.Model):
     level = db.Column(db.String, nullable=False)
     college = db.Column(db.Text, nullable=False)
     
+    dept = db.Column(db.Text, nullable=False)
+    course_title = db.Column(db.String, nullable=False)
+    course_desc = db.Column(db.Text, nullable=False, index=True)
+    
     
