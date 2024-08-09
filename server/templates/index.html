@@ -8,7 +8,7 @@
   <body>
     <h1>Courses</h1>
     <ul>
-      {% for cid in course %}
+      {% for cid_tuple in course %} {% set cid = cid_tuple[0] %}
       <li>{{ cid }}</li>
       {% endfor %}
     </ul>
