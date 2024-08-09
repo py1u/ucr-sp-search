@@ -4,13 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Courses</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .column {
+        width: 18%; /* Adjust to fit 5 columns in the container */
+        list-style-type: none;
+        padding: 0;
+      }
+      .column li {
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
   <body>
     <h1>Courses</h1>
-    <ul>
-      {% for cid_tuple in course %} {% set cid = cid_tuple[0] %}
-      <li>{{ cid }}</li>
+    <div class="container">
+      {% for column in category_col %}
+      <ul class="column">
+        {% for cid_tuple in column %} {% set cid = cid_tuple[0] %}
+        <li>{{ cid }}</li>
+        {% endfor %}
+      </ul>
       {% endfor %}
-    </ul>
+    </div>
   </body>
 </html>
