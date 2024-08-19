@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .column {
+        width: 18%;
+        list-style-type: none;
+        padding: 0;
+      }
+      .column li {
+        margin-bottom: 10px;
+      }
+      .label {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Courses</h1>
+    <div class="container">
+      {% for item in category_col_with_labels %}
+      <ul class="column">
+        <li class="label">{{ item.label }}</li>
+        {% for cid_tuple in item.courses %} {% set cid = cid_tuple[0] %}
+        <li>{{ cid }}</li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </div>
+  </body>
+</html>
