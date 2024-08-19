@@ -7,16 +7,16 @@ class Course(db.Model):
     
     
     # 6 primary columns from 2021-2024 course catalogue
-    cid = db.Column(db.String, nullable=False , primary_key=True)
-    level = db.Column(db.String, nullable=False)
-    college = db.Column(db.Text, nullable=False)
+    cid = db.Column("course_id", db.String(50), nullable=False , primary_key=True)
+    level = db.Column("class_level", db.String(50), nullable=False)
+    college = db.Column("college", db.Text, nullable=False)
     
-    dept = db.Column(db.Text, nullable=False)
-    course_title = db.Column(db.String, nullable=False)
-    course_desc = db.Column(db.Text, nullable=False, index=True)
+    dept = db.Column("department", db.Text, nullable=False)
+    course_title = db.Column("course_title", db.String(50), nullable=False)
+    course_desc = db.Column("description", db.Text, nullable=False, index=True)
     
     #unique 
-    sgd = db.Column(db.String)
+    sgd = db.Column("sgd", db.String)
     
     
     # get a list for the sdgs
@@ -26,6 +26,10 @@ class Course(db.Model):
             return list(map(int, self.sgd.split(',')))
         return []
     
+    # setter for sgd string type field from list
+    def sgd_list(self, values):
+        self.sgd = ','.join(map(str, values))
     
+    # returning data as string per row
     def __repr__(self):
-        return f'course id: {self.cid}'
+        return f"{self.cid} {self.college}"
